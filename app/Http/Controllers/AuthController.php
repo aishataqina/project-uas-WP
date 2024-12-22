@@ -39,15 +39,15 @@ class AuthController extends Controller
             'role' => $request->role,
         ]);
 
-        // Login otomatis setelah registrasi
-        Auth::login($user);
-        if ($user->role === 'admin') {
-            return redirect()->route('admin.dashboard')->with('success', 'Login berhasil sebagai Admin!');
-        } elseif ($user->role === 'kasir') {
-            return redirect()->route('kasir.dashboard')->with('success', 'Login berhasil sebagai Kasir!');
-        }
+        // // Login otomatis setelah registrasi
+        // Auth::login($user);
+        // if ($user->role === 'admin') {
+        //     return redirect()->route('admin.dashboard')->with('success', 'Login berhasil sebagai Admin!');
+        // } elseif ($user->role === 'kasir') {
+        //     return redirect()->route('kasir.dashboard')->with('success', 'Login berhasil sebagai Kasir!');
+        // }
 
-        return redirect()->route('home')->with('success', 'Registrasi berhasil!');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil!');
     }
 
     // Login
